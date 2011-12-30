@@ -1,0 +1,243 @@
+from django.utils import simplejson as json
+from datetime import datetime, timedelta
+import re
+import pdb
+import math
+
+from django.http import HttpRequest
+
+from main.models import *
+from utils import logpath
+from main.fetching import *
+
+class BrowseWritsTable():
+    browse_page_url = '/browse'
+    legal_params = {
+                    'sort':('recent|nods|views', 'recent'), 
+                    'time': ('today|week|all','all'),
+                    'csize': ('all|singleword|phrase|sentence|shortsentence|paragraph|unlimited','all'),
+                    'onlyfinished': ('0|1','0'),
+                    'page': ('\d+','0'),
+                    'pagesize':('\d+','10'),
+                    }
+    
+    def __init__(self, params):
+        self._clean_vals(params)
+        self._perform_query()
+        self._create_page_links()
+        
+    """ Validates the given parameter values and uses the default values where appropriate """
+    def _clean_vals(self, param_dict):
+        self.param_dict = {}
+        for param, item in self.legal_params.items():
+            if not param in param_dict:
+                #set it to the default value given in legal_params
+                self.param_dict[param] = self.legal_params[param][1]
+            else:
+                #validate the value
+                if re.match(self.legal_params[param][0], param_dict[param]):
+                    self.param_dict[param] = param_dict[param]
+                else:
+                    #otherwise set it to the default value
+                    self.param_dict[param] = self.legal_params[param][1]
+        print 'Browse writs params: %s' % self.param_dict
+
+    def _perform_query(self):
+        p = self.param_dict
+
+        if p['sort'] == 'recent':
+            writs = Writ.objects.order_by('-last_addition_date')
+        elif p['sort'] == 'nods':
+            writs = Writ.objects.order_by('-total_nod_count')
+        elif p['sort'] == 'views':
+            writs = Writ.objects.order_by('-total_view_count')
+
+        if p['onlyfinished'] == '1':
+            writs = writs.filter(endeddate__isnull=False)
+        elif p['onlyfinished'] == '0':
+            pass
+       
+        if p['time'] == 'all':
+            pass
+        elif p['time'] == 'today':
+            yesterday = datetime.today() - timedelta(days=1)
+            writs = writs.filter(last_addition_date__gt=yesterday)
+        elif p['time'] == 'week':
+            lastweek = datetime.today() - timedelta(days=7)
+            writs = writs.filter(last_addition_date__gt=lastweek)
+             
+
+        if p['csize'] == 'all':
+            pass
+        elif p['csize'] == 'singleword':
+            writs = writs.filter(settings__max_words_per_contribution=1)
+        elif p['csize'] == 'phrase':
+            writs = writs.filter(settings__max_words_per_contribution__gt=1, settings__max_words_per_contribution__lte=5)
+        elif p['csize'] == 'shortsentence':
+            writs = writs.filter(settings__max_words_per_contribution__gte=6, settings__max_words_per_contribution__lte=15)
+        elif p['csize'] == 'sentence':
+            writs = writs.filter(settings__max_words_per_contribution__gte=16, settings__max_words_per_contribution__lte=25)
+        elif p['csize'] == 'paragraph':
+            writs = writs.filter(settings__max_words_per_contribution__gte=26)
+        elif p['csize'] == 'unlimited':
+            writs = writs.filter(settings__max_words_per_contribution=0)
+        
+        #limit to public writs
+        writs = writs.filter(settings__public_visibility='fullpublic')
+
+        r0 = 0
+        r1 = 0
+        try:
+            page = int(p['page'])
+            pagesize = min(int(p['pagesize']), 50)
+            r0 = page * pagesize
+            r1 = r0 + pagesize
+        except:
+            pass
+
+        writ_count = writs.count()
+        print 'Query returned %s total writs' % writ_count
+        self.page_count = int(math.ceil(float(writ_count) / float(pagesize)))
+
+        self.writs = writs[r0:r1]
+
+    def _recreate_url_params(self):
+        pstring = '?'
+        for key, item in self.param_dict.items():
+            if not key == 'page':
+                if not item == self.legal_params[key][1]:
+                    pstring = pstring + '%s=%s&' % (key, item)
+        
+        if pstring:
+            if pstring[-1] == '&':
+                pstring = pstring[:-1]
+        return pstring
+    
+    def _create_page_links(self):
+        pagelinks = []
+        pstring = self._recreate_url_params()
+        for i in xrange(self.page_count):
+            url = self.browse_page_url + pstring + '&page=' + str(i)
+            pagelinks.append("<a href='%s'>%s</a>" % (url, i+1))
+        self.pagelinks = pagelinks
+    
+    def get_writs(self):
+        return self.writs
+
+    def get_page_links(self):
+        return self.pagelinks
+    
+    def get_params(self):
+        return self.param_dict
+    def get_browse_url(self):
+        return self.browse_page_url
+
+class LandingPageContext():
+    def __init__(self, request):
+        self.writs_most_nods = []
+    def get_writs_most_nods(self, count=4):
+        if not len(self.writs_most_nods) >= count:
+            self.writs_most_nods = WritsSurface.coolest()
+        return self.writs_most_nods
+
+class WritViewPageContext():
+    def __init__(self, request, writ):
+        self.writ = writ
+        self.bwu = None
+        if request.user.is_authenticated():
+            self.bwu = request.user.beatwrituser
+        self.request = request
+        self._user_order = None
+        self._participant_set = None
+        self._participant_users = None
+
+    def get_user_order(self):
+        if self._user_order:
+            return self._user_order
+        self._user_order = self.writ.get_user_order()
+        return self._user_order
+
+    def get_participant_set(self):
+        if self._participant_set:
+            return self._participant_set
+        self._participant_set = self.writ.participant_set.all()
+        return self._participant_set
+    
+    def get_participant_users(self):
+        if self._participant_users:
+            return self._participant_users
+        self._participant_users = self.writ.participants.all()
+        return self._participant_users
+
+    def get_new_additions(self):
+        if not self.request.user.is_authenticated():
+            return []
+        
+        #get the additions of the user in reverse order
+        my_adds = self.writ.addition_set.filter(author__exact=self.bwu).order_by('-position')
+        
+        if len(my_adds) is 0:
+            if not self.bwu in self.writ.participants.all():
+                return []
+            return self.writ.addition_set.all()
+        most_recent_addition = my_adds[0]
+        most_recent_position = most_recent_addition.position
+        return self.writ.addition_set.filter(position__gt=most_recent_position)
+
+    def get_participant_infos(self):
+        # [{'name':'', 'nodcount':''},...]
+        infos = [] 
+        users = self.get_user_order()
+        for user in users:
+            p_nods = Nod.objects.filter(addition__writ__id__exact=self.writ.id,receiver__pk__exact=user.id)
+            info = {'name':user.get_penname(), 'nodcount':len(p_nods), 'id':user.pk}
+            infos.append(info)
+        return infos
+
+    def get_user_json_object(self):
+        user = {}
+        user['nodsRemaining'] = self.get_user_nods_remaining()
+        user['id'] = self.writ.pk
+        #if self.bwu in self.writ.participants.all()
+        user['inWrit'] = self.bwu in self.writ.participants.all()
+        print user
+        return json.dumps(user)
+
+    def get_writ_json_object(self):
+        writ = {}
+        writ['id'] = self.writ.pk
+        writ['endingType'] = self.writ.settings.endingtype
+        writ['numContribWords'] = self.writ.settings.max_words_per_contribution
+        writ['wordsRemaining'] = self.writ.get_words_remaining()
+
+        adds = {}
+        for addition in self.writ.addition_set.all():
+            addition_info = addition.pack()
+            adds[str(addition_info['id'])] = addition_info
+        writ['additions'] = adds
+
+        return json.dumps(writ)
+
+    def is_users_turn(self):
+        user_order = self.get_user_order() 
+        if user_order[0].pk == self.bwu.pk: 
+            return True
+        else: 
+            return False
+    
+    def is_user_participant(self):
+        if self.bwu in self.get_participant_users():
+            return True
+        else:
+            return False
+
+    def get_user_nods_remaining(self):
+        if not self.is_user_participant():
+            return 0
+        return self.bwu.nods_remaining
+
+    def user_has_nods(self):
+        if self.get_user_nods_remaining() > 0:
+            return True
+        return False
+

@@ -1,0 +1,2 @@
+
+vim settings.py -c "tabe urls.py" -c "tabe main/models.py" -c "tabe main/pagecontexts/__init__.py" -c "tabe main/views.py" -c "tabe main/ajaxviews.py" -c "tabfirst"

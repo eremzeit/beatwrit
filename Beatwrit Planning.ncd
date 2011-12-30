@@ -1,0 +1,886 @@
+<!DOCTYPE NoteCase-File>
+<!--LastNote:27-->
+<HTML>
+<HEAD>
+<meta content="text/html;charset=UTF-8" http-equiv="Content-Type">
+<meta name="generator" content="NoteCase 1.9.8">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<DL>
+<DT>TASKS</DT>
+<!--property:date_created=1297213680-->
+<!--property:date_modified=1297215019-->
+<DD>
+<BR>
+_x_ Change code to update beatwrituser.total_nods_received<BR>
+_x_ Get Community Additions to work on the MyBeatwritsPage<BR>
+<BR>
+-= Minor Tasks =-<BR>
+_(x)_ Correct handling of whitespace in additions, particularly newlines<BR>
+_x_ Fix the 'join writ' button to not display when already a member<BR>
+_x_ Prevent joining a writ when already a member<BR>
+<BR>
+-=Alpha=-<BR>
+__x_ User settings page<BR>
+	_x_ Change email tokening system<BR>
+	_x_ Change email form<BR>
+	_x_ Change password form<BR>
+	_x_ Change options form<BR>
+<BR>
+<BR>
+_x_ Develop concept of friends/circle<BR>
+	_x_ Circle admin page<BR>
+	_x_ circle DB backend<BR>
+	_x_ Add to circle shortcut functions<BR>
+<BR>
+_x_ Create tables for WritInvites and CircleInvites<BR>
+<BR>
+<span style="color:#868686">_x_ Add tab navigation via GET parameters<BR>
+<BR>
+_(x)_ Split MyBeatwrit page into public-facing and self-facing</span><BR>
+<BR>
+<b>___ Implement mailing reminders<BR>
+	___ Cron job for detecting stale writs<BR>
+</b>	<span style="color:#868686">_(x)_ Auto-login from email <BR>
+		_x_ create_login_token()<BR>
+		_x_ autologin view<BR>
+	_x_ Make email reminder templates<BR>
+	_x_ Instant sending emails<BR>
+	___ Create email queue backend (NOT DOING THIS)<BR>
+		___EmailToSend<BR>
+		___Automatic</span><BR>
+	<BR>
+_x_ Fix javascript word counting function<BR>
+<BR>
+<BR>
+<BR>
+Should users receive emails whenever the writ is updated?<BR>
+	an email for every update should be opt in on a writ-by-writ basis<BR>
+<BR>
+_(x)_ Join writs page ( perhaps this could be integrated with the browse page? )<BR>
+<BR>
+_x_ Why does erem have no active/finished writs?<BR>
+<BR>
+<BR>
+<BR>
+-=Full Release Tasks=-<BR>
+___ Optimize mybeatwrits page	<BR>
+<BR>
+___ Invites<BR>
+<BR>
+___Comments
+</DD>
+<DT>Facebook</DT>
+<!--property:date_created=1289952028-->
+<!--property:date_modified=1289952028-->
+<DD>
+<DL>
+<DT>Login with</DT>
+<!--property:date_created=1289952044-->
+<!--property:date_modified=1296792882-->
+<DT>App integration</DT>
+<!--property:date_created=1289952051-->
+<!--property:date_modified=1289952051-->
+</DL>
+
+</DD>
+<DT>Pages</DT>
+<!--property:date_created=1289951905-->
+<!--property:date_modified=1289951905-->
+<DD>
+<DL>
+<DT>Landing Page</DT>
+<!--property:date_created=1289952221-->
+<!--property:date_modified=1289952221-->
+<DD>
+<DL>
+<DT>Contexts</DT>
+<!--property:date_created=1289952273-->
+<!--property:date_modified=1289955804-->
+<DD>
+purpose  --&gt; <b>hook new users to join<BR>
+<BR>
+</b><DL>
+<DT>Logged In</DT>
+<!--property:date_created=1289952279-->
+<!--property:date_modified=1289952279-->
+<DT>Not Logged In</DT>
+<!--property:date_created=1289952285-->
+<!--property:date_modified=1289952285-->
+</DL>
+
+</DD>
+</DL>
+
+</DD>
+<DT>My Writs Page</DT>
+<!--property:date_created=1289952241-->
+<!--property:date_modified=1289961416-->
+<DD>
+<b>My Writs = center of operations<BR>
+</b><BR>
+<BR>
+Writs<BR>
+	Mine<BR>
+	Friends'<BR>
+	Community's<BR>
+<BR>
+Contributions<BR>
+	Mine<BR>
+		Most recent contribs<BR>
+	Community's<BR>
+		Recent &quot;best&quot; contribs, semi-random<DL>
+<DT>(contexts)</DT>
+<!--property:date_created=1289952273-->
+<!--property:date_modified=1293668075-->
+<!--property:expanded-->
+<DD>
+<b>John Doe's Own Page</b><BR>
+*Has more information about the community and what John Doe's circle is doing<BR>
+<BR>
+Contributions:<BR>
+	--&gt; Essentially a news feed, except that it's a sized widget that displays them linearly<BR>
+	  &gt;	Displays the communities posts<BR>
+	<BR>
+Top status bar displays:<BR>
+	-- count of active writs<BR>
+	-- count nods remaining<BR>
+	<BR>
+<BR>
+Writ's Box:<BR>
+	--Active<BR>
+	--Finished<BR>
+	--Circle<BR>
+	--Community<BR>
+<BR>
+<b>Another User (Jane Smith)</b><BR>
+Writ's Box<BR>
+	--Active<BR>
+	--Finished	<BR>
+<BR>
+Stats<BR>
+<BR>
+Contributions<BR>
+	--&gt; Essentially a news feed, except that it's a sized widget that displays them linearly<BR>
+	  &gt;	Displays the Jane Smith's posts<BR>
+<BR>
+	<BR>
+		<DL>
+<DT>User's own</DT>
+<!--property:date_created=1289952298-->
+<!--property:date_modified=1289952298-->
+<DT>Another user's</DT>
+<!--property:date_created=1289952547-->
+<!--property:date_modified=1289952547-->
+</DL>
+
+</DD>
+</DL>
+
+</DD>
+<DT>Writ View</DT>
+<!--property:date_created=1289952248-->
+<!--property:date_modified=1289952248-->
+<DD>
+<DL>
+<DT>(contexts)</DT>
+<!--property:date_created=1289952273-->
+<!--property:date_modified=1289952273-->
+<DD>
+<DL>
+<DT>Logged In</DT>
+<!--property:date_created=1289952279-->
+<!--property:date_modified=1289952279-->
+<DT>Not Logged In</DT>
+<!--property:date_created=1289952285-->
+<!--property:date_modified=1289952285-->
+<DT>Not turn</DT>
+<!--property:date_created=1289952292-->
+<!--property:date_modified=1289952292-->
+<DT>Not participant</DT>
+<!--property:date_created=1289952298-->
+<!--property:date_modified=1289952298-->
+</DL>
+
+</DD>
+</DL>
+
+</DD>
+<DT>Browse Writs</DT>
+<!--property:date_created=1289952591-->
+<!--property:date_modified=1289952591-->
+<DD>
+<DL>
+<DT>(tasks)</DT>
+<!--property:date_created=1289952600-->
+<!--property:date_modified=1289952600-->
+<DD>
+<DL>
+<DT>HTML/CSS</DT>
+<!--property:date_created=1289955442-->
+<!--property:date_modified=1289955442-->
+<!--property:finished=1-->
+<DT>(bugs)</DT>
+<!--property:date_created=1289955462-->
+<!--property:date_modified=1289955516-->
+<!--property:expanded-->
+<DD>
+Sorting by &quot;Most Views&quot; doesn't seem to work.
+</DD>
+</DL>
+
+</DD>
+</DL>
+
+</DD>
+<DT>Join a writ</DT>
+<!--property:date_created=1289952252-->
+<!--property:date_modified=1289952252-->
+<!--property:expanded-->
+<DT>Start New Writ</DT>
+<!--property:date_created=1289959361-->
+<!--property:date_modified=1289959361-->
+<DT>User Settings</DT>
+<!--property:date_created=1289959652-->
+<!--property:date_modified=1289960444-->
+<!--property:expanded-->
+<DD>
+<b>-= Settings =-</b><BR>
+<BR>
+Reminder Email Policy<BR>
+		Upon gaining turn<BR>
+		&quot;Reengagement&quot;<BR>
+			After some time time of writ inactivity...<BR>
+				sortof randomly send an email to a participant<BR>
+<BR>
+				<BR>
+Privacy Settings<BR>
+	Others can view list of my writs<BR>
+	My quality contributions can be featured publically
+</DD>
+</DL>
+
+</DD>
+<DT>Emails</DT>
+<!--property:date_created=1289959968-->
+<!--property:date_modified=1295151663-->
+<!--property:expanded-->
+<DD>
+<BR>
+<b>-= Expected Emails =-<BR>
+<BR>
+</b>Recover password<BR>
+<BR>
+Writ turn reminder (rr only)<BR>
+	Instant login and navigation	<BR>
+	Click to pass turn<BR>
+	<BR>
+Writ reminder (ffa only)<BR>
+	Instant login and navigation<BR>
+	Click to pass turn<BR>
+	<BR>
+<i>Upon sending...<BR>
+</i>writ.last_email_sent = datetime.now()<BR>
+user.last_email_sent = datetime.now()<BR>
+<BR>
+<BR>
+if writ_settings.turn_type == &quot;round_robin&quot;:<BR>
+	at every turn change...<BR>
+		if nextuser.settings.receive_turn_emails:<BR>
+			send_turn_email()<BR>
+<BR>
+elif writ_settings.turn_type == &quot;free_for_all&quot;:<BR>
+	if writ.time_since_last_email() &gt; some_time:<BR>
+		user = get_random_participant()<BR>
+		if user.is_emailable(writ):<BR>
+			send_reminder_email(user, writ)<BR>
+			<BR>
+	<BR>
+<b>-= Queue Generation =-</b><BR>
+1. Once/Twice a day, check each writ to see if an email should be sent.<BR>
+<BR>
+2. If email should be sent, add a record to EmailsToSend table<BR>
+<BR>
+3. Cron job runs every hour and sends from the queue the maximum<BR>
+number of emails our server allows.<BR>
+<BR>
+<BR>
+<BR>
+<b>-= Email Sending =-</b><BR>
+1. The next email is taken from the EmailsToSend queue<BR>
+2. The EmailTemplateID is given to EmailTemplateManager,a singleton class,<BR>
+which then returns an EmailTemplate.<BR>
+3. The Arguments column is a text-serialized list of arguments, which are<BR>
+passed to the EmailTemplate to contruct all the necessary details to send<BR>
+an email. <BR>
+<BR>
+<BR>
+define table EmailsToSend<BR>
+	str Destination<BR>
+	str EmailTemplateID<BR>
+	textblob(json) Arguments<BR>
+<BR>
+class EmailTemplate<BR>
+	str BodyTemplate<BR>
+	str Subject<BR>
+	str From<BR>
+	str Headers		
+</DD>
+<DT>User Model</DT>
+<!--property:date_created=1289953023-->
+<!--property:date_modified=1289961813-->
+<!--property:expanded-->
+<DD>
+<b>-= Users =-</b><BR>
+Users are stand alone entities<BR>
+<BR>
+Each account can be linked to a facebook login<BR>
+	because<BR>
+		access to connection information<BR>
+		quick logins<BR>
+<BR>
+<b>-= Connected Users =-</b><BR>
+Two users are said to be <u>connected</u> if:<BR>
+	Facebook friends<BR>
+	User A currently co-authoring with User B<BR>
+	User A opts into connecting with User B<BR>
+		ie. User A &quot;dog ears&quot; User B<BR>
+<BR>
+Connection is <i>temporal<BR>
+<BR>
+</i>define get_connected_users()<BR>
+	<BR>
+User A and connected user B<BR>
+	Activities of user B get put into attention of user A<BR>
+<BR>
+<BR>
+<DL>
+<DT>Settings</DT>
+<!--property:date_created=1293665960-->
+<!--property:date_modified=1293674472-->
+<DD>
+<b>Basic</b><BR>
+	Penname	<BR>
+	<BR>
+	Reset Password<BR>
+					<BR>
+	__Email Reminders__<BR>
+			email_address<BR>
+<BR>
+		Enable/disable email invites<BR>
+<BR>
+		Enable/disable email reminders<BR>
+		<BR>
+		Form of emails		<BR>
+			Normal<BR>
+			Digest (summarize emails into a single email per day)<BR>
+<BR>
+	__Privacy__<BR>
+		Who can see the list of my writs? (everyone, circle, only me)<BR>
+		Should my contributions be surfaceable?<BR>
+		<BR>
+		<BR>
+<b>My Circle</b><BR>
+---add/remove users from their circle<BR>
+<BR>
+<b>Facebook</b><BR>
+--view status of facebook integration<BR>
+--initiate facebook integration<BR>
+<BR>
+<BR>
+
+</DD>
+</DL>
+
+</DD>
+<DT>Content Surfacing</DT>
+<!--property:date_created=1289955561-->
+<!--property:date_modified=1289957764-->
+<DD>
+<b>-= Community Content =-</b><BR>
+<BR>
+--&gt; The community is the global whole of users; however, when we talk about community content we imply filtering.<BR>
+<BR>
+<BR>
+<BR>
+<b>-= Tracking Quality Community Content =-</b><BR>
+<BR>
+Which can be indexed?<BR>
+	Writs --	if writ.settings.is_public = true<BR>
+	Contributions --	if writ.settings.is_public = true<BR>
+				and user.publically_browsable = true<BR>
+	Users --	if user.publically_browsable = true<BR>
+<BR>
+<b>-= Grabbing Exceptional Content =-</b><BR>
+<BR>
+In whichever context, we can randomly grab from one of the indexes above<BR>
+	<DL>
+<DT>Content description tables</DT>
+<!--property:date_created=1289954437-->
+<!--property:date_modified=1289959073-->
+<!--property:expanded-->
+<DD>
+<b>-= What to capture =-</b><BR>
+	Writs<BR>
+		(type)<BR>
+			Views<BR>
+			Nods<BR>
+		(time)<BR>
+			Today, week, month, year, all<BR>
+	Contributions<BR>
+		(type)<BR>
+			Nods<BR>
+		(time)<BR>
+			Today, week, month, year, all<BR>
+	Users<BR>
+		(type)			<BR>
+			Nods<BR>
+		(time)<BR>
+			all time<BR>
+			<BR>
+Scalability<BR>
+	Assume, per year<BR>
+		10,000 writs<BR>
+		300,000 contributions<BR>
+	and 5,000 users<BR>
+<BR>
+<BR>
+-= Why not just a view? =-<BR>
+Because we need the cached version<BR>
+	final tables are accessed often<BR>
+	much extra-table processing is done<BR>
+		ie. checking permissions settings for users, writs, etc<BR>
+<BR>
+<b>-= Tables to populate=-</b><BR>
+<BR>
+<u>Name</u>						<u>Approx Size</u><BR>
+main_writ_sort_views_today		500<BR>
+main_writ_sort_views_week		1,000<BR>
+main_writ_sort_views_month		3,000<BR>
+main_writ_sort_views_year			10,000<BR>
+<BR>
+main_writ_sort_nods_today		500<BR>
+main_writ_sort_nods_week		1,000<BR>
+main_writ_sort_nods_month		3,000<BR>
+main_writ_sort_nods_year			10,000<BR>
+<BR>
+main_addition_sort_nods_today		15,000<BR>
+main_addition_sort_nods_week		30,000<BR>
+main_addition_sort_nods_month		90,000<BR>
+main_addition_sort_nods_year		300,000<BR>
+<BR>
+main_user_sort_nods			5,000<BR>
+<BR>
+<BR>
+<BR>
+<b>-= For example =-</b><BR>
+Suppose the table is...<BR>
+	main_addition_sort_nods_week<BR>
+<BR>
+SELECT * id FROM main_addition add<BR>
+	WHERE add.date &gt; OneWeekDate();
+</DD>
+<DT>Programming Interface</DT>
+<!--property:date_created=1289956155-->
+<!--property:date_modified=1289959569-->
+<DD>
+<b>Interfaces to provide:</b><BR>
+(Table indices will be based on these tasks)<BR>
+<BR>
+<BR>
+<BR>
+Writs.get_most_views_today()<BR>
+Writs.get_most_views_week()<BR>
+Writs.get_most_views_month()<BR>
+Writs.get_most_views_all()<BR>
+<BR>
+Writs.get_most_nods_today()<BR>
+Writs.get_most_nods_week()<BR>
+Writs.get_most_nods_month()<BR>
+Writs.get_most_nods_all()<BR>
+<BR>
+Writs.get_best_today()<BR>
+Writs.get_best_week()<BR>
+Writs.get_best_month()<BR>
+Writs.get_best_all()<BR>
+<BR>
+Additions.get_most_nods_today()<BR>
+Additions.get_most_nods_week()<BR>
+Additions.get_most_nods_month()<BR>
+Additions.get_most_nods_all()<BR>
+<BR>
+<BR>
+<BR>
+
+</DD>
+<DT>Table Maintenance</DT>
+<!--property:date_created=1289957171-->
+<!--property:date_modified=1289958872-->
+<!--property:expanded-->
+<DD>
+Best way to periodically execute every...<BR>
+	24 hours?<BR>
+	week?<BR>
+	month?<BR>
+	year?<BR>
+	<BR>
+<BR>
+<b>-= Options =-</b><BR>
+Best: MySql Event execution<BR>
+<BR>
+good ol' CRON<BR>
+(in-python scheduling)<BR>
+	django-cron<BR>
+<BR>
+<BR>
+	<BR>
+<BR>
+<DL>
+<DT>(tasks)</DT>
+<!--property:date_created=1290040444-->
+<!--property:date_modified=1290040494-->
+<DD>
+___ script to create extra tables<BR>
+___ DB function to populate tables<BR>
+___ create execution schedule
+</DD>
+</DL>
+
+</DD>
+</DL>
+
+</DD>
+<DT>Graphics/Branding</DT>
+<!--property:date_created=1289951951-->
+<!--property:date_modified=1289951951-->
+<DT>Deployment</DT>
+<!--property:date_created=1289951988-->
+<!--property:date_modified=1293502607-->
+<DD>
+Learn from MySpace<BR>
+<BR>
+Whenever a non-testing user account is created,<BR>
+they need some existing content and a way to learn what beatwrit is about.<BR>
+<BR>
+Simplest idea:<BR>
+New users automatically are put into a fully-functional yet fake writ <BR>
+that has existing contributions and co-authors.  The coauthors will <BR>
+have pennames of historical figures (ie. russion authors, presidents, NBA<BR>
+players, serial killers, etc).  This not only gives the user experience but will also<BR>
+set the non-serious tone of the site.  This writ will be alive, yet the other fake<BR>
+coauthors will not contribute, so it's essentially a static sandbox.<BR>
+<BR>
+Possible (yet more complicated idea):<BR>
+Just like above, except that the coauthors will periodically post a funny sentence<BR>
+into the writ.<BR>
+<BR>
+Pros:<BR>
+-Give the user a smoother transition; less waiting time before using the site<BR>
+<BR>
+Cons:<BR>
+-added complexity<BR>
+-This might confuse users as to what the site is about.  Clear instructions<BR>
+will be important here; otherwise the user may get the idea that the point<BR>
+is to interact with the bots, as opposed to other users<DL>
+<DT>(tasks)</DT>
+<!--property:date_created=1289956514-->
+<!--property:date_modified=1289956514-->
+<DD>
+<DL>
+<DT>Porting table generation scripts</DT>
+<!--property:date_created=1289956527-->
+<!--property:date_modified=1289956527-->
+</DL>
+
+</DD>
+<DT>Testing</DT>
+<!--property:date_created=1297213437-->
+<!--property:date_modified=1297213445-->
+<DD>
+<b>Testing batteries</b><BR>
+<BR>
+Instant tests<BR>
+	In a single function, populate the the additons of a writ without using http<BR>
+	Can test:<BR>
+		--sequencing<BR>
+		--writ ending detection (only word-limit-based)<BR>
+	Won't test:<BR>
+		--other writ ending detection (time-limit, inactivity, inactive-round)<BR>
+		--submission<BR>
+		<BR>
+Realtime tests (faster scale)<BR>
+	Set small time amounts for time-limit, inactivity, inactive-round<BR>
+	Submit contributions by emulating the logins and POST calls for contributions<BR>
+	Pros:<BR>
+		Better code coverage<BR>
+		Can be done practically instantly<BR>
+	Cons:<BR>
+		increased complexity<BR>
+		<BR>
+<BR>
+Realtime tests (real scale)<BR>
+	Pros:<BR>
+		Gives best code coverage<BR>
+	Cons:<BR>
+		Takes the longest<BR>
+		increased complexity<BR>
+		Must wait for results		
+</DD>
+<DT>Initial features</DT>
+<!--property:date_created=1297213493-->
+<!--property:date_modified=1297213749-->
+<DD>
+<BR>
+Default Options for New Writs<BR>
+<BR>
+Turntype<BR>
+<i>	Free-for-all? (*)</i><BR>
+		-game play is more flexible<BR>
+		-the &quot;its-my-turn effect&quot; can be approximated by sending reminder emails<BR>
+	Round Robin?<BR>
+		-Possibly slow down game play because only a single person can add<BR>
+		-drives fringe participation because of the &quot;its-my-turn effect&quot;<BR>
+<BR>
+Who can join?<BR>
+	<i>Everyone (*)</i><BR>
+		As site grows, might cause problems but should be ok at first<BR>
+	Only those in circle of authors<BR>
+		Would be confusing until people understand &quot;circle&quot;<BR>
+		<BR>
+		<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+Note: you can't join a writ that you can't view.  This should be enforced.
+</DD>
+<DT>Alpha release</DT>
+<!--property:date_created=1296792310-->
+<!--property:date_modified=1297214243-->
+<DD>
+<BR>
+-=Alpha=-<BR>
+-- User settings page<BR>
+	-- Change email form<BR>
+	-- Change password form<BR>
+	-- Change options form<BR>
+<BR>
+-- friends/circle<BR>
+<BR>
+-- Mailing reminders<BR>
+	-- Auto-login from email <BR>
+	_x_ Make email reminder templates<BR>
+	_x_ Instant sending emails<BR>
+	<BR>
+-- Join writs page ( perhaps this could be integrated with the browse page? )<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+Should users receive emails whenever the writ is updated?<BR>
+	an email for every update should be opt in on a writ-by-writ basis<BR>
+
+</DD>
+<DT>Beta release</DT>
+<!--property:date_created=1296792360-->
+<!--property:date_modified=1296792374-->
+<DD>
+-=Full Release Tasks=-<BR>
+___ Optimize mybeatwrits page	<BR>
+<BR>
+___ Invites<BR>
+<BR>
+___Comments
+</DD>
+</DL>
+
+</DD>
+<DT>Brainstorming</DT>
+<!--property:date_created=1289961307-->
+<!--property:date_modified=1289961581-->
+<!--property:expanded-->
+<DD>
+<b>-= User Experience of Writ =-</b><BR>
+Writs should automatically close after a period of inactivity<BR>
+	to prevent the creation of hurtles<BR>
+	if a writ is boring, don't pressure the participants to finish it<BR>
+	<BR>
+	<BR>
+<b>-= Principles of Design =-</b><BR>
+<BR>
+Not social networking<BR>
+	Avoids privacy issues<BR>
+	Don't collect data besides additions<BR>
+<BR>
+The internet can be brainful<BR>
+	rather than brainless<BR>
+<BR>
+<DL>
+<DT>Extended Features</DT>
+<!--property:date_created=1289957072-->
+<!--property:date_modified=1289959523-->
+<!--property:expanded-->
+<DD>
+Other:<BR>
+	Pictures, embedded in writs<BR>
+	User avatars<BR>
+<BR>
+<DL>
+<DT>Random hive chatter</DT>
+<!--property:date_created=1289959162-->
+<!--property:date_modified=1289959419-->
+<!--property:expanded-->
+<DD>
+--&gt; <b>Import randomness from the interwebs</b><BR>
+	into the view of the author for inspiration<BR>
+<BR>
+<BR>
+Examples<BR>
+	Recent wikipedia edits<BR>
+	Wikipedia trends<BR>
+	Random open sounds<BR>
+	
+</DD>
+<DT>Zeitgest</DT>
+<!--property:date_created=1289959171-->
+<!--property:date_modified=1289959478-->
+<DD>
+<b>--&gt;  Analyze the collective contributions of the Beatwrit community</b><BR>
+<BR>
+Display<BR>
+	trends in word frequencies<BR>
+	cliches<BR>
+	<BR>
+For the open enjoyment of the public
+</DD>
+</DL>
+
+</DD>
+</DL>
+
+</DD>
+<DT>Manifesto</DT>
+<!--property:date_created=1289961436-->
+<!--property:date_modified=1297213628-->
+<DD>
+Principles<BR>
+<BR>
+In 100 years from now when <BR>
+<BR>
+<BR>
+-The makers of beatwrit forward the idea of the internet being a respectable place<BR>
+that is involved in quality outcomes, rather than time-wasting.<BR>
+-User's don't want to waste their time.  Why should we help them by creating<BR>
+an addictive yet brainless activity?<BR>
+-A user's attention is limited and valuable.  Respect it.<BR>
+-Design should be simple<BR>
+<BR>
+Grades of attention:<BR>
+	A -- Full attention, sitting at a desk, concentration<BR>
+	B -- Full attention, yet in a hurry<BR>
+	C -- At the computer, yet walking out the door<BR>
+	D -- Ie. checking mail on the subway using a phone, in the car<BR>
+<BR>
+<BR>
+<BR>
+The many identities of the internet<BR>
+--created by the department of defense as a tool in wartime<BR>
+--a gadget to tinker with<BR>
+--the fantasy of the internet revolutionizing education, by providing a global<BR>
+searchable database of knowledge, accessable to all<BR>
+--an arena for consumerism<BR>
+--(recently) a stage for the inherently human process of socializing (ie. social networking)<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+Text, Speech sound, Music, Images, Video, other coded data<BR>
+A realtime global network<BR>
+The number of access points will only increase<BR>
+<BR>
+<BR>
+It would be a mistake to assume that the internet will continue to be consumed<BR>
+and interacted with as it is in its present form.  <BR>
+<BR>
+<BR>
+~ 12000 BC -- The first permenent settlements of humans<BR>
+~ 4000 BC -- Earliest writing systems<BR>
+~ 1500s AD -- Print (books, pamphlets, newspapers, magazines, etc)<BR>
+~ 1900s -- Recordings (gramophone records, magnetic tapes, cassettes, cartridges, CDs, DVDs)<BR>
+~ 1900 AD -- Cinema<BR>
+~ 1910 AD -- Radio<BR>
+~ 1950 AD -- Television<BR>
+~ 1990 AD -- Internet<BR>
+~ 2000 AD -- Mobile phones<BR>
+<BR>
+Don't fool yourself.  The internet is quite young and as of yet the way humans have interacted with it is,<BR>
+by comparison, like an infant putting a pair of cuff links in their mouth as an act of exploration.  Just as the<BR>
+infant has no concept of fashion, we have not even begun to understand subtleties of it's eventual use.<BR>
+<BR>
+Frivilosities appear to dominate the identity of the internet.  Think the multitudes of meaningless facebook<BR>
+applications, sentimental chain emails, attention-snatching Flash games, addiction-based revenue models,<BR>
+pornography (especially that which appeals to the lowest common denomenator of users in terms of<BR>
+sexual tastes), excessive alerts and indicators, popups, and flashing ads.<BR>
+<BR>
+I don't believe these will ever go away, per se, but eventually these will come to be commonly understood to be<BR>
+the MO low-brow internet.<BR>
+<BR>
+<BR>
+<BR>
+The Internet, Creativity, and Attention<BR>
+The human race still has to create a narrative to describe how the internet is consumed, particularly in regards<BR>
+to the process of human attention.  In other words, we have not decided how the internet can potentially<BR>
+affect us, or how we would even want the internet to affect us.  Think deeply about the contents of the<BR>
+marketing of popular online services.  The word of the decade for online marketing is &quot;connect&quot;, in all it's various forms,<BR>
+portmanteaus, and respellings.  Facebook, email, instant messenging, smartphones, the cloud, etc; their<BR>
+vocabularies revolve around sending and receiving right now, being always a part of the global commotion.<BR>
+They convince us that this is what we want and that they can provide it.  <BR>
+<BR>
+However, we have our internal doubts.  Perhaps it is actually we ourselves that doubt the true utility of <BR>
+staying connected all the time, or perhaps it is the words of that Somebody that we all know at least<BR>
+one of who are staunchly opposed to the constant bathing-in of information.  Do we actually WANT to<BR>
+always be connected to the global net?  First, we ask ourselves whether it is actually useful (which of course,<BR>
+might be answered differently by each person, depending on their own roles and aspirations).  Second,<BR>
+we then ask ourselves whether it is indeed healthy to be ever-connected.  The second question is difficult to simply answer because it requires us to take a deep and scientific<BR>
+look into the processes of attention.<BR>
+<BR>
+The collective user-base hasn't decided what exactly what it wants from the internet because the average<BR>
+has no idea about the existence of the attention economy.<BR>
+<BR>
+To illustrate what I'm talking about, lets review a revenue model used by many startup internet sites<BR>
+in the first decade of 2000 which I will call here the Ad-based Freemium model.  Freemium is a broader model<BR>
+in which the service is offered in at least two access tiers, the lowest of which can be had for free by the user.<BR>
+Higher tiers, (ie. premium features) can be accessed by paying a fee.  So when I say Ad-based Freemium<BR>
+model, I refer a situation in which users can choose between using the service for free, albeit with ads<BR>
+displayed throughout, or using paying a fee to use the service without any ads displayed.<BR>
+The ad-based Freemium model clearly illustrates that the attention of users is a commodity that is worth<BR>
+money.  The service provider knows this already because sitting on their desk is a pricing sheet of ads, <BR>
+priced by the size and location of the ad, and sold by the thousand of views.  Some users obviously<BR>
+understand this because some users are willing to pay a premium for ad-free service.  However, the vast<BR>
+majority of normal internet users aren't privy the fact that their attention is being sold off to highest bidder.<BR>
+<BR>
+Most users aren't aware of the attention economy, which implies that they are not aware of how their<BR>
+attention works.<BR>
+<BR>
+<BR>
+Think about tobacco and addiction.  How many thousands of years has it been since the world has<BR>
+discovered tobacco, and yet, the understanding of how dopamine action of nicotine still has not propogated<BR>
+into the collective consciousness.  <BR>
+<BR>
+<BR>
+<BR>
+<BR>
+Randomness injection.<BR>
+<BR>
+The design and feel of the site should be a microcosm for living and breathing nature of the internet.<BR>
+<BR>
+Link to random/thoughtprovoking/bizarre content on the internet in tiny tidbits at a time.
+</DD>
+</DL>
+</BODY>
+</HTML>

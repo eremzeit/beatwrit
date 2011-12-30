@@ -1,0 +1,2 @@
+python manage.py reset --noinput main auth
+python test_data.py
